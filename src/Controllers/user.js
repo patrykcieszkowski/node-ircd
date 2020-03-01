@@ -2,6 +2,7 @@ import models from '../Models'
 
 export class User {
   constructor(client) {
+    this.stream = client.stream
     this.data = {}
 
     this.methods = Object.keys(models.user)
