@@ -38,7 +38,7 @@ export class Server {
 
   data(client, line) {
     if (this.commands.isCommand(line)) {
-      this.commands.handle(client, line)
+      this.commands.handle(client._object, line)
       return
     }
 

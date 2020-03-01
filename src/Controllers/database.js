@@ -11,11 +11,11 @@ export class UserDatabase {
     this.users = []
   }
 
-  register(client, username, servername, hostname, realname) {
-    client._object.username = username
-    client._object.realname = realname
-    client._object.hostname = hostname
-    this.users.push(client)
+  register(user, username, servername, hostname, realname) {
+    user.username = username
+    user.realname = realname
+    user.hostname = hostname
+    this.users.push(user)
   }
 }
 
