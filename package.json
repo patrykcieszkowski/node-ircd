@@ -6,7 +6,9 @@
   "repository": "https://github.com/patrykcieszkowski/node-ircd.git",
   "author": "Patryk Cieszkowski <me@polethedev.com>",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/app.js"
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "babel src --out-dir dist --copy-files",
+    "start": "npm run build && forever dist/app.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -26,5 +28,8 @@
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "forever": "^2.0.0"
   }
 }
