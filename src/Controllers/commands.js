@@ -11,14 +11,24 @@ export class ServerCommands {
       }), {})
   }
 
-  handle(data) {
+  handle(client, data) {
     const split = data.split(' ')
 
     if (!this.commands[split[0]]) {
       return false
     }
 
-    return this.commands[split[0]](data)
+    return this.commands[split[0]](client, split)
+  }
+
+  isCommand(data) {
+    const split = data.split(' ')
+
+    if (!this.commands[split[0]]) {
+      return false
+    }
+
+    return true
   }
 }
 
