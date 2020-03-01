@@ -1,6 +1,14 @@
+import models from '../Models'
+
 export class User {
-  constructor() {
+  constructor(client) {
     this.data = {}
+
+    this.methods = Object.keys(models.user)
+      .reduce((acc, key) => ({
+        ...acc,
+        [key]: models.user[key].bind(this)
+      }), {})
   }
 
   set username(value) {

@@ -1,7 +1,9 @@
 import commands from './commands'
+import user from './user'
 
 export const models = {
-  commands
+  commands,
+  user
 }
 
 export default models
