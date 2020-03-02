@@ -16,6 +16,7 @@ export class UserDatabase {
     user.realname = realname
     user.hostname = hostname
     this.users.push(user)
+    user.methods.register()
   }
 }
 

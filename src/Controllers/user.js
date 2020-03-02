@@ -3,6 +3,7 @@ import models from '../Models'
 export class User {
   constructor(client) {
     this.stream = client.stream
+    this.server = client.server
     this.data = {}
     this.registered = false
 
@@ -23,14 +24,6 @@ export class User {
 
   set hostname(value) {
     this.data.hostname = value
-  }
-
-  register() {
-    if (this.registered || !this.data.username) {
-      return
-    }
-
-    this.methods.send('Welcome to EC irc')
   }
 }
 

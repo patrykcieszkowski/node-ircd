@@ -9,8 +9,9 @@ import User from './Controllers/user'
 
 
 export class AbstractConnection {
-  constructor(stream) {
+  constructor({ stream, server }) {
     this.stream = stream
+    this.server = server
     this._object = new User(this)
   }
 }
@@ -21,7 +22,7 @@ export class Server {
     this.commands = new ServerCommands({ server: this })
 
     this.server = net.createServer((stream) => {
-      const client = new AbstractConnection(stream)
+      const client = new AbstractConnection({ stream, server: this })
       stream.on('end', () => {
         console.log('end')
       })
