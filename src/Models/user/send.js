@@ -1,5 +1,5 @@
 export const send = function() {
-  if (!this.stream) {
+  if (!this.client.stream) {
     return
   }
 
@@ -12,7 +12,7 @@ export const send = function() {
     return
   }
 
-  this.stream.write(message + '\r\n')
+  this.client.stream.write(message + '\r\n')
 }
 
 export default send

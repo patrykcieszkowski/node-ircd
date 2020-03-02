@@ -2,8 +2,9 @@ import models from '../Models'
 
 export class User {
   constructor(client) {
-    this.stream = client.stream
+    this.client = client
     this.server = client.server
+
     this.data = {}
     this.registered = false
 
