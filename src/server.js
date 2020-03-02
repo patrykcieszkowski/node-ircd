@@ -45,6 +45,10 @@ export class Server {
     console.log(line)
   }
 
+  motd(user) {
+    user.methods.send('Welcome to the chat room!')
+  }
+
   listen() {
     this.server.listen(config.PORT)
   }
