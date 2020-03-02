@@ -14,6 +14,12 @@ export class AbstractConnection {
     this.server = server
     this._object = new User(this)
   }
+
+  destroy() {
+    this.stream.end()
+    this.stream.destroy()
+    delete this
+  }
 }
 
 export class Server {
@@ -23,6 +29,11 @@ export class Server {
 
     this.server = net.createServer((stream) => {
       const client = new AbstractConnection({ stream, server: this })
+      stream.on('error', (err) => {
+        console.log(err)
+        stream.destroy()
+      })
+
       stream.on('end', () => {
         console.log('end')
       })
